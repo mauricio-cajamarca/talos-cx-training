@@ -1,0 +1,5 @@
+export HYBRIS_OPT_CONFIG_DIR=~/clients/talos/talos-cx-training/hybris/env/local
+
+alias tctsetant='cd ~/clients/talos/talos-cx-training/hybris/bin/platform && . ./setantenv.sh'
+alias tctrepo='cd ~/clients/talos/talos-cx-training/'
+alias tctenvconfig='tctsetant && tctrepo && ant envconfig'
