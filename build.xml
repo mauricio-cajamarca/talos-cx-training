@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<project name="build" default="all">
+    <property name="dbdriver" location="dbdriver/mysql-connector-java-5.1.46-bin.jar" />
+    <property name="platformhome" location="hybris/bin/platform"/>
+    <property name="HYBRIS_HOME" location="hybris"/>
+    <property name="HYBRIS_BIN_DIR" location="${HYBRIS_HOME}/bin" />
+    <property name="HYBRIS_CONFIG_DIR" location="${HYBRIS_HOME}/config" />
+    <property name="HYBRIS_TEMP_DIR" location="${HYBRIS_HOME}/temp/hybris" />
+    <property name="environment" value="local"/>
+    <property name="HYBRIS_ENV_CONFIG_DIR" location="${HYBRIS_HOME}/env/${environment}"/>
+    <property name="HYBRIS_COMMON_CONFIG_DIR" location="${HYBRIS_HOME}/env/common"/>
+    <property name="template" value="develop"/>
+    <property name="hybris.zip.package.src" location="/SAPDevelop/yapps/y-suite-versions/HYBRISCOMM6700P_0-80003492.ZIP" />
+    <available file="${platformhome}/build.xml" property="platformPresent"/>
+    <echo>-------------------------------------------------------------------------------</echo>
+    <echo>ENVIRONMENT: ${environment}</echo>
+    <echo>platformhome: ${platformhome}</echo>
+    <echo>-------------------------------------------------------------------------------</echo>
+
+    <macrodef name="config" description="Updates the configuration" >
+      <sequential>
+             <available file="${hybris.zip.package.src}" property="hybrisZipPresent" />
+             <ant dir="build" antfile="prepare.xml" target="envconfig"  />
+      </sequential>
+    </macrodef>
+    
+    <config />
+    
+    <import file="build/prepare.xml" /> 
+    <import file="build/install_upgrade.xml" />
+    <import file="build/production.xml" />
+    <import file="build/hybris_build_targets.xml" />
+
+   
+
+</project>
