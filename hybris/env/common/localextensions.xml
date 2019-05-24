@@ -61,5 +61,7 @@
     <extension name='odata2webservices' />
     <extension name='kymaintegrationbackoffice' />
     <extension name='kymaintegrationsampledata' />
+    <extension name='taloswishlist' />
+    <extension name='taloswishlistaddon' />
   </extensions>
 </hybrisconfig>
